@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
+import Blog from './pages/Blog';
 import Login from './pages/Login';
 import CreatePost from './pages/CreatePost';
 import { useState } from 'react';
@@ -20,19 +21,51 @@ function App() {
 
     return (
         <Router>
-            <nav className="bg-slate-100 shadow-lg font-mono text-slate-600">
-                <Link to={'/'}>Home</Link>
-                {!isAuth ? (
-                    <Link to={'/login'}>Login</Link>
-                ) : (
-                    <>
-                        <Link to={'/createpost'}>Create Post</Link>
-                        <button onClick={signUserOut}>Log Out</button>
-                    </>
-                )}
+            <nav className="container-fluid flex justify-evenly mx-auto py-6 text-lg bg-gray-100 shadow-lg font-mono text-sky-900">
+                <div className="flex items-center text-emphasis">
+                    <h3>Omar Almatov</h3>
+                </div>
+                <div className="space-x-4">
+                    <Link
+                        className="hover:bg-slate-200 p-3 rounded-2xl"
+                        to={'/'}
+                    >
+                        Home
+                    </Link>
+                    <Link
+                        className="hover:bg-slate-200 p-3 rounded-2xl"
+                        to={'/blog'}
+                    >
+                        Blog
+                    </Link>
+                    {!isAuth ? (
+                        <Link
+                            className="bg-blue-500 text-white shadow-md hover:bg-blue-400 p-3 rounded-3xl"
+                            to={'/login'}
+                        >
+                            Login
+                        </Link>
+                    ) : (
+                        <>
+                            <Link
+                                className="hover:bg-slate-200 p-3 rounded-2xl"
+                                to={'/createpost'}
+                            >
+                                Create Post
+                            </Link>
+                            <button
+                                className="bg-red-500 text-white shadow-md hover:bg-red-400 p-3 rounded-3xl"
+                                onClick={signUserOut}
+                            >
+                                Log Out
+                            </button>
+                        </>
+                    )}
+                </div>
             </nav>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/blog" element={<Blog />} />
                 <Route
                     path="/login"
                     element={<Login setIsAuth={setIsAuth} />}
