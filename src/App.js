@@ -21,7 +21,7 @@ function App() {
 
     return (
         <Router>
-            <nav className="container-fluid flex justify-evenly mx-auto py-6 text-lg bg-gray-100 shadow-lg font-mono text-sky-900">
+            <nav className="container-fluid flex justify-evenly mx-auto py-6 text-lg bg-gray-100 font-mono text-sky-900">
                 <div className="flex items-center text-emphasis">
                     <h3>Omar Almatov</h3>
                 </div>
@@ -47,12 +47,12 @@ function App() {
                         </Link>
                     ) : (
                         <>
-                            <Link
+                            {/*<Link
                                 className="hover:bg-slate-200 p-3 rounded-2xl"
                                 to={'/createpost'}
                             >
                                 Create Post
-                            </Link>
+                            </Link>*/}
                             <button
                                 className="bg-red-500 text-white shadow-md hover:bg-red-400 p-3 rounded-3xl"
                                 onClick={signUserOut}
