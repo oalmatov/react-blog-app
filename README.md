@@ -6,6 +6,13 @@
 * Delete your posts.
 ## Software Requirements:
 * [Docker Desktop](https://docs.docker.com/get-docker/)
+Alternatively you can install docker by running these commands:
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+```
+sudo chmod a+x /usr/local/bin/docker-compose
+```
 ## How to run app:
 If it's your first time building run this:
 ```
