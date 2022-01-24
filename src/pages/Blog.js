@@ -16,6 +16,7 @@ const POSTS_PER_LOAD = 3;
 function Blog({ isAuth }) {
     const [postLists, setPostList] = useState([]);
     const [lastVisisblePost, setLastVisisblePost] = useState();
+    const [isChanged, setIsChanged] = useState(false);
     const postsCollectionRef = collection(db, 'posts');
 
     // load next 3 posts
@@ -36,29 +37,37 @@ function Blog({ isAuth }) {
             );
         }
         const data = await getDocs(next);
+
         setPostList(
             postLists.concat(
                 data.docs.map((doc) => ({ ...doc.data(), id: doc.id })),
             ),
         );
+
         setLastVisisblePost(data.docs[data.docs.length - 1]);
     };
 
     const deletePost = async (id) => {
         const postDoc = doc(db, 'posts', id);
-        const indexOfDoc = postLists.indexOf(postDoc);
+        await deleteDoc(postDoc);
+        const object = postLists.find(({ id }) => id === postDoc.id);
+        const index = postLists.indexOf(object);
 
-        if (indexOfDoc !== -1) {
-            postLists.splice(indexOfDoc, 1);
+        console.log(postLists.length, index);
+
+        if (index != -1) {
+            postLists.splice(index, 1);
         }
 
-        await deleteDoc(postDoc);
+        setIsChanged(!isChanged);
+        //console.log(postLists.length + ' ' + index);
     };
 
     // load initial three posts
     useEffect(() => {
-        if (postLists.length === 0) {
+        if (postLists.length === 0 || isChanged == true) {
             loadPosts();
+            setIsChanged(false);
         }
     }, []);
 
@@ -94,7 +103,7 @@ function Blog({ isAuth }) {
                 );
             })}
             <div className="flex justify-center items-center">
-                {postLists.length !== 0 ? (
+                {postLists.length >= 3 ? (
                     <button
                         onClick={loadPosts}
                         className="bg-lime-500 hover:bg-lime-400 p-3 shadow-md rounded-3xl text-white"
@@ -102,7 +111,7 @@ function Blog({ isAuth }) {
                         Load more...
                     </button>
                 ) : (
-                    <div>No posts yet</div>
+                    <div>No more posts :(</div>
                 )}
             </div>
         </div>
