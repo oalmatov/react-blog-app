@@ -30,3 +30,7 @@ To drop the server run this:
 sudo docker-compose down
 ```
 The app will run on http://localhost:3001/
+## TODO:
+* Search for posts using hashtags.
+* Attach thumbnails to posts
+* Fix pagination. 
