@@ -20,6 +20,7 @@ If it's your first time building run this:
 sudo docker-compose up -d --build
 ```
 The initial build takes a long time (~30s). Don't be alarmed.
+
 To raise the server run this:
 ```
 sudo docker-compose up -d
