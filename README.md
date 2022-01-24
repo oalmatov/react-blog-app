@@ -12,3 +12,4 @@ sudo docker-compose up -d --build
 ```
 sudo docker-compose stop
 ```
+The app will run on http://localhost:3001/
