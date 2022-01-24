@@ -12,7 +12,7 @@ sudo docker-compose up -d --build
 ```
 To raise the server run this:
 ```
-sudo docker-compuse up -d
+sudo docker-compose up -d
 ```
 To drop the server run this:
 ```
