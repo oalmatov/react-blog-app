@@ -1,6 +1,5 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
 import Blog from './pages/Blog';
 import Login from './pages/Login';
 import CreatePost from './pages/CreatePost';
@@ -21,23 +20,16 @@ function App() {
 
     return (
         <Router>
-            <nav className="container-fluid flex justify-evenly mx-auto py-6 text-lg bg-gray-100 font-mono text-sky-900">
+            <nav className="container flex justify-between mx-auto py-6 text-lg bg-gray-100 font-mono text-sky-900 w-[600px]">
                 <div className="flex items-center text-emphasis">
-                    <h3>Omar Almatov</h3>
-                </div>
-                <div className="space-x-4">
                     <Link
                         className="hover:bg-slate-200 p-3 rounded-2xl"
                         to={'/'}
                     >
-                        Home
+                        Feed
                     </Link>
-                    <Link
-                        className="hover:bg-slate-200 p-3 rounded-2xl"
-                        to={'/blog'}
-                    >
-                        Blog
-                    </Link>
+                </div>
+                <div className="space-x-4">
                     {!isAuth ? (
                         <Link
                             className="bg-blue-500 text-white shadow-md hover:bg-blue-400 p-3 rounded-3xl"
@@ -47,12 +39,12 @@ function App() {
                         </Link>
                     ) : (
                         <>
-                            {/*<Link
-                                className="hover:bg-slate-200 p-3 rounded-2xl"
+                            <Link
+                                className="bg-lime-500 hover:bg-lime-400 p-3 shadow-md rounded-3xl text-white"
                                 to={'/createpost'}
                             >
                                 Create Post
-                            </Link>*/}
+                            </Link>
                             <button
                                 className="bg-red-500 text-white shadow-md hover:bg-red-400 p-3 rounded-3xl"
                                 onClick={signUserOut}
@@ -64,7 +56,7 @@ function App() {
                 </div>
             </nav>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Blog />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route
                     path="/login"
