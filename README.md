@@ -3,7 +3,7 @@
 * View posts made by other users.
 * Sign in with Google.
 * Create blog posts.
-* Delete you posts.
+* Delete your posts.
 ## Software Requirements:
 * [Docker](https://docs.docker.com/get-docker/)
 ## How to run app:
