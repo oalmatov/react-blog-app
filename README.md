@@ -7,8 +7,8 @@
 
 ## How to run app:
 ```
-docker-compose up -d --build
+sudo docker-compose up -d --build
 ```
 ```
-docker-compose stop
+sudo docker-compose stop
 ```
