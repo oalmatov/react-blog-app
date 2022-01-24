@@ -5,7 +5,7 @@
 * Create blog posts.
 * Delete your posts.
 ## Software Requirements:
-* [Docker](https://docs.docker.com/get-docker/)
+* [Docker Desktop](https://docs.docker.com/get-docker/)
 ## How to run app:
 If it's your first time building run this:
 ```
