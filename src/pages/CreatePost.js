@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db, auth } from '../firebase-config';
 import { useNavigate } from 'react-router-dom';
-import TagInput from './TagInput';
 
 function CreatePost({ isAuth }) {
     const [title, setTitle] = useState('');
     const [postText, setPostText] = useState('');
-    const [tags, setTags] = useState([]);
 
     const postsCollectionRef = collection(db, 'posts');
     let navigate = useNavigate();
@@ -16,7 +14,6 @@ function CreatePost({ isAuth }) {
         await addDoc(postsCollectionRef, {
             title,
             postText,
-            tags,
             author: {
                 name: auth.currentUser.displayName,
                 id: auth.currentUser.uid,
@@ -54,7 +51,6 @@ function CreatePost({ isAuth }) {
                         setPostText(event.target.value);
                     }}
                 />
-                <TagInput setTags={setTags} />
                 <button
                     className="text-white shadow-sm  bg-emerald-400 hover:shadow-md p-2 w-full rounded-3xl"
                     onClick={createPost}
