@@ -4,7 +4,8 @@
 * Sign in with Google.
 * Create posts blog posts (only if authenticated).
 * Delete posts that you have written.
-
+## Software Requirements:
+* [Docker](https://docs.docker.com/get-docker/)
 ## How to run app:
 If it's your first time building run this:
 ```
