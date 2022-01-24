@@ -2,8 +2,8 @@
 ## Functionality:
 * View posts made by other users.
 * Sign in with Google.
-* Create posts blog posts (only if authenticated).
-* Delete posts that you have written.
+* Create blog posts.
+* Delete you posts.
 ## Software Requirements:
 * [Docker](https://docs.docker.com/get-docker/)
 ## How to run app:
